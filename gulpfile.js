@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     jade = require('gulp-jade'),
+    server = require('gulp-server-livereload'),
     normalize = require('node-normalize-scss').includePaths,
     neat = require('node-neat').includePaths,
     bourbon = require('node-bourbon').includePaths;
@@ -21,10 +22,18 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('./public'));
 });
 
+gulp.task('webserver', function() {
+    gulp.src('./public')
+        .pipe(server({
+            livereload: true,
+            open: true
+        }));
+});
+
 gulp.task('watch', function() {
     gulp.watch(['assets/sass/*.scss', 'assets/sass/**/*.scss'], ['styles']);
     gulp.watch(['assets/jade/*.jade', 'assets/jade/**/*.jade'], ['templates']);
 });
 
-gulp.task('default', ['styles', 'templates', 'watch']);
+gulp.task('default', ['styles', 'templates', 'watch', 'webserver']);
 gulp.task('deploy', ['styles', 'templates']);

@@ -28,6 +28,7 @@
     "gulp-file-include": "^0.13.7",
     "gulp-jade": "^1.1.0",
     "gulp-sass": "^2.1.1",
+    "gulp-server-livereload": "^1.5.4",
     "jade": "^1.11.0",
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
