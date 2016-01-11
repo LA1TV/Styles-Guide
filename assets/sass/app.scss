@@ -1,3 +1,10 @@
 @import "normalize";
 @import "bourbon";
 @import "neat";
+
+@import "globals/variables";
+@import "globals/base";
+@import "globals/grid-settings";
+
+@import "object/nav";
+@import "object/content";
